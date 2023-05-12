@@ -4,8 +4,7 @@ def index_all(search_list, item):
         if value == item:
             index_list.append([index])
         elif isinstance(search_list[index], list):
-            for i in index_all(search_list[index], item):
-                index_list.append([index] + i)
+            index_list.extend([index] + i for i in index_all(search_list[index], item))
     return index_list
 
 
